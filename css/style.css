@@ -1,0 +1,175 @@
+/* step 1, used key frames guide, starting at 25 pixels then to 475 pixels, used logo id from html file and initiated it with animation   */
+
+@keyframes logodiff{
+    from {width:25px; opacity:0;}
+    to {width:475px; opacity:1;}
+}
+
+#logo {
+    animation: logodiff 5s;
+}
+
+/* step 2 */
+body {
+    font-family: "Poppins", sans-serif;  
+    /* used font, already established in html, back up after the comma */
+    background-image: url("../images/concrete_seamless.png");
+    /* need to include two dots and the slash to use background image  */
+    background-color: #f1f1f1;
+    /* back up background color */
+}
+/* step 3  check this*/
+header {
+    align-items:center;
+    /* align the items to the center */
+    display: flex;
+    /* sets up the container to flex element */
+    flex-direction:column;
+    /* set the direction to be vertical in the element  */
+    flex-wrap: wrap;
+    /* make items to go different lines also helps from flex-direction */
+
+}
+/* step 4 */
+
+.nav_links {
+    display: flex;
+    /* sets up the container to flex element */
+    flex-direction: column;
+    /* set the direction to be vertical in the element  */
+}
+
+/* step 5 */
+
+.nav_item a:link, .nav_item a:visited {
+    color:blue;
+    /* want the links to be blue when not clicked as well as clicked, can do this by using "visited" */
+}
+/* step 6 */
+.card > header {
+    background-color: #288088;
+    border: 2px solid  #45ADAD;
+    padding: 20px 0px 20px 0px;
+    /* estbalish on the top and bottom of 20px, and no where else */
+    border-radius:50px 50px 0px 0px;
+    /* curve the edges on the top two corners */
+}
+
+/* part of step 6, step 7 */
+.card {
+    flex: 0 1 450px;
+    border-radius: 50px 50px 0px 0px;
+    /* even after curving edges in .card>header it still doesnt work so need to do it again in the card class and now it is fully a cruve edge with no white corner */
+}
+  
+/* step 8 */
+.pricing {
+    display: flex;
+    /* same rationale as before  */
+    flex-wrap: wrap;
+    /* send things to new line */
+    align-items: center;
+    /* set items in the pricing element to the middle  */
+    justify-content: center;
+    /* space items relative to the main axis to the cetner  */
+}
+
+/* step 9 */
+.gallery img {
+    border: 10px solid #50c7c7;
+    margin: 10px;
+    width:300px;
+    /* establish a width, margin, border as told */
+}
+
+/* step 10 */
+.gallery{
+    display: flex;
+    flex-wrap:wrap;
+    /* set items in the line down if the space permits */
+    justify-content:center;
+    /* space items relative to the main axis to the cetner  */
+}
+
+@media screen and (min-width:900px) {
+    /* step 11 make media query for devices that are larger than 900px */
+    header {
+        flex-direction: row;
+        justify-content:space-between;
+        /* utilizes all of the space between the first and last items */
+    }
+    .nav_links {
+        flex-direction:row;
+
+    }
+    /* step 12 check */
+    .card {
+        flex-basis:275px;
+        /* sets the initial size of hte content and makes sure it is responsive */
+    }
+    /* step 13 */
+    
+    body > header {
+        width:100%;
+        /* take up the entire length of the page */
+        position:sticky;
+        /* keep the header at the top even when you scroll down */
+        top:0px;
+        /* place o from the top of header so it actually sets it at the top */
+    }
+
+}
+/* step 14 */
+@media screen and (prefers-reduced-motion:reduce){
+    #logo {
+        animation: none;
+    }
+}
+
+@media print and (orientation:portrait){
+    /* step 15 and 16 */
+    body {
+        font-family: Arial, Helvetica;
+        background-image:none;
+    }
+    /* step 17 */
+    nav {
+        width: 100%; 
+        /* take up entire width of page */
+    }
+    .nav_links {
+        flex-direction: row;
+        /* make sure they go horizontally  */
+        justify-content: space-around;
+        /* put space around elements in the container  */
+    }
+    /* step 18 */
+    .pricing {
+        display:flex;
+        justify-content:center;
+        flex-wrap:nowrap;
+        flex-direction:row;
+        align-items:flex-end;
+    }
+    /* step 19 */
+    .card {
+        flex-basis:325px;
+        /* set initial size again but in print view */
+        border: 2px solid  #45ADAD;
+    }
+    /* step 20 */
+    #gallery{
+        visibility:hidden;
+        /* takes up space but is not viewable, sends the black square down to second page */
+    }
+    
+    .gallery {
+        display:none;
+        /* do not display the gallery photos */
+    }
+
+    .card ul li:nth-child(2)::after {
+        content:'👍'
+        /* target second list item in the unordered list  */
+    }
+}
