@@ -155,7 +155,7 @@ header {
     .card {
         flex-basis:325px;
         /* set initial size again but in print view */
-        border: 2px solid  #45ADAD;
+        border: 2px solid  #45ADDD;
     }
     /* step 20 */
     #gallery{
